@@ -27,6 +27,11 @@ jobs:
             npm install
             npm run build
 
-            pm2 stop \$PROCESS_NAME || true
+             PROCESS_NAME=\$PROCESS_NAME
+            if pm2 list | grep -q \$PROCESS_NAME; then
+              pm2 stop \$PROCESS_NAME
+            else
+              echo 'Process \$PROCESS_NAME not found, skipping stop.'
+            fi
             pm2 start dist/main.js --name '\$PROCESS_NAME'
           EOF
