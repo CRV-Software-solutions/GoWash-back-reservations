@@ -33,5 +33,5 @@ jobs:
             else
               echo 'Process \$PROCESS_NAME not found, skipping stop.'
             fi
-            pm2 start dist/main.js --name '\$PROCESS_NAME'
+            pm2 start dist/main.js --name "\$PROCESS_NAME"
           EOF
