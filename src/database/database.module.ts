@@ -14,10 +14,7 @@ export const models = [];
       password: Config.dbContrasenna,
       database: Config.dbBaseDatos,
       models: models,
-      autoLoadModels: true,
-      synchronize: true,
       logging: Config.ambiente === Constantes.LOCAL,
-      sync: { alter: true }
     })
   ]
 })
