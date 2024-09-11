@@ -68,11 +68,11 @@ describe('Validando database', () => {
         let fieldsTable = Object.keys(attributes).map(
           key => attributes[key].field
         );
-        const sql = `SHOW COLUMNS FROM \`${tableName}\`;`;
-        const response = await sequelizeInstance.query(sql);
+        const sql = `SELECT column_name FROM information_schema.columns WHERE table_name = '${tableName}';`;
+        const [response] = await sequelizeInstance.query(sql);
         response.forEach(field => {
           Object.keys(field).forEach(keys => {
-            attribuetesTable.push(field[keys].Field);
+            attribuetesTable.push(field[keys]);
           });
         });
         attribuetesTable = attribuetesTable.sort();
