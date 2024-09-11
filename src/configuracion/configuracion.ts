@@ -7,11 +7,10 @@ export class Config {
     return process.env.AMBIENTE;
   }
   static readonly puerto = process.env.PORT;
-  static readonly key = process.env.KEY;
-  static readonly dbHost = process.env.DB_HOST;
-  static readonly dbPuerto = Number(process.env.DB_PUERTO);
-  static readonly dbUsuario = process.env.DB_USUARIO;
-  static readonly dbContrasenna = process.env.DB_CONTRASENNA;
-  static readonly dbBaseDatos = process.env.DB_BASE_DATOS;
+  static readonly key = `${process.env.KEY}`;
+  static readonly dbHost = `${process.env.DATABASE_HOST}`;
+  static readonly dbPuerto = Number(process.env.DATABASE_PORT);
+  static readonly dbUsuario = `${process.env.DATABASE_USER}`;
+  static readonly dbContrasenna = `${process.env.DATABASE_PASSWORD}`;
+  static readonly dbBaseDatos = `${process.env.DATABASE_NAME}`;
 }
-
